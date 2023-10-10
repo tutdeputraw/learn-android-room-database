@@ -1,16 +1,16 @@
-package com.example.learnroomdatabase
+package com.example.learnroomdatabase.ui.contact.adapter
 
 import android.annotation.SuppressLint
-import android.graphics.Movie
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.learnroomdatabase.data.local.Contact
+import com.example.learnroomdatabase.models.Contact
 import com.example.learnroomdatabase.databinding.ItemRowContactBinding
 
 class ContactAdapter(
-    private val onClick: (Contact) -> Unit
+    private val onClick: ((Contact) -> Unit)? = null,
+    private val onDeleteClicked: ((Contact) -> Unit)? = null
 ) : RecyclerView.Adapter<ContactAdapter.ListViewHolder>() {
     private var contacts = ArrayList<Contact>()
 
@@ -38,6 +38,7 @@ class ContactAdapter(
         val contact = contacts[position]
         holder.binding.name.text = "${contact.firstName} ${contact.lastName}"
         holder.binding.phoneNumber.text = contact.phoneNumber
-        holder.itemView.setOnClickListener { onClick(contact) }
+        holder.itemView.setOnClickListener { onClick?.let { it1 -> it1(contact) } }
+        holder.binding.btnDelete.setOnClickListener { onDeleteClicked?.let { it1 -> it1(contact) } }
     }
 }

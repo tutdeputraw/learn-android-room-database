@@ -24,7 +24,9 @@ class AppModule {
             context,
             ContactDatabase::class.java,
             "contact_database"
-        ).build()
+        )
+            .allowMainThreadQueries()
+            .build()
     }
 
     @Provides

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.contact.ContactActivity">
 
     <RadioGroup
         android:id="@+id/RBGFilter"
@@ -43,8 +43,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_contacts"
-        android:layout_width="409dp"
-        android:layout_height="681dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

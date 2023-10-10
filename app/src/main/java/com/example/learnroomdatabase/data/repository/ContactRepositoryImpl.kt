@@ -1,7 +1,7 @@
 package com.example.learnroomdatabase.data.repository
 
 import androidx.lifecycle.LiveData
-import com.example.learnroomdatabase.data.local.Contact
+import com.example.learnroomdatabase.models.Contact
 import com.example.learnroomdatabase.data.local.ContactDao
 import com.example.learnroomdatabase.domain.repository.ContactRepository
 
@@ -16,15 +16,15 @@ class ContactRepositoryImpl(
         contactDao.deleteContact(contact)
     }
 
-    override suspend fun queryByFirstName(): LiveData<List<Contact>> {
+    override fun queryByFirstName(): LiveData<List<Contact>> {
         return contactDao.getContactOrderedByFirstName()
     }
 
-    override suspend fun queryByLastName(): LiveData<List<Contact>> {
+    override fun queryByLastName(): LiveData<List<Contact>> {
         return contactDao.getContactOrderedByLastName()
     }
 
-    override suspend fun queryByPhoneNumber(): LiveData<List<Contact>> {
+    override fun queryByPhoneNumber(): LiveData<List<Contact>> {
         return contactDao.getContactOrderedByPhoneNumber()
     }
 }

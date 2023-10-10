@@ -1,4 +1,4 @@
-package com.example.learnroomdatabase.data.local
+package com.example.learnroomdatabase.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,4 +10,8 @@ data class Contact(
     val firstName: String,
     val lastName: String,
     val phoneNumber: String,
-)
+) {
+    override fun toString(): String {
+        return "Contact(id=$id, firstName='$firstName', lastName='$lastName', phoneNumber='$phoneNumber')"
+    }
+}

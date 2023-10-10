@@ -2,7 +2,7 @@ package com.example.learnroomdatabase.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import com.example.learnroomdatabase.models.Contact
 
 @Dao
 interface ContactDao {
