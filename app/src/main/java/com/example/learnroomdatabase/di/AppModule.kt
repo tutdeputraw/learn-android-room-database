@@ -6,6 +6,7 @@ import com.example.learnroomdatabase.data.local.ContactDao
 import com.example.learnroomdatabase.data.local.ContactDatabase
 import com.example.learnroomdatabase.data.repository.ContactRepositoryImpl
 import com.example.learnroomdatabase.domain.repository.ContactRepository
+import com.example.learnroomdatabase.ui.contact.ContactViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,5 +39,10 @@ class AppModule {
     @Singleton
     fun provideContactRepository(contactDao: ContactDao): ContactRepository {
         return ContactRepositoryImpl(contactDao)
+    }
+
+    @Provides
+    fun provideViewModel(contactRepository: ContactRepository): ContactViewModel {
+        return ContactViewModel(contactRepository)
     }
 }

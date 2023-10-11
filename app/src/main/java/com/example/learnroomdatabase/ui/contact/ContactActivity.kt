@@ -3,6 +3,7 @@ package com.example.learnroomdatabase.ui.contact
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnroomdatabase.R
@@ -16,14 +17,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class ContactActivity : AppCompatActivity(), PopupFragmentCallback<Contact> {
 
     private lateinit var binding: ActivityContactBinding
-    private lateinit var viewModel: ContactViewModel
+    private val viewModel: ContactViewModel by viewModels()
     private lateinit var contactAdapter: ContactAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityContactBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[ContactViewModel::class.java]
-        viewModel.queryContactsOrderedByFirstName()
         setContentView(binding.root)
 
         setupContactAdapter()
